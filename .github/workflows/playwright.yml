@@ -16,8 +16,19 @@ jobs:
           cache: 'npm'
       - name: Install dependencies
         run: npm ci
+      - name: Restore Playwright
+        uses: actions/cache/restore@v3
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright
       - name: Install Playwright
         run: npx playwright install --with-deps
+      - name: Cache Playwright
+        id: cache-primes
+        uses: actions/cache@v3
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright
       - name: Run Playwright tests
         run: npm run test:e2e
       - uses: actions/upload-artifact@v3
