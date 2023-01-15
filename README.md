@@ -1,4 +1,28 @@
+# yukinissie's nextjs 13 template
+
+![](https://api.checklyhq.com/v1/badges/checks/dfe622f3-abb6-4fa7-b251-ccd79dab65b0?style=flat&theme=default&responseTime=true)
+
+[![SonarCloud](https://sonarcloud.io/images/project_badges/sonarcloud-white.svg)](https://sonarcloud.io/summary/new_code?id=nextjs13-template)
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+
+Then I added the following,
+
+- [Renovate](https://github.com/marketplace/renovate)
+- [SonarCloud](https://www.sonarsource.com/products/sonarcloud/)
+- [Storybook](https://storybook.js.org/) V6
+- [Playwright](https://playwright.dev/)
+
+The prefix of a pull request should be as follows, following Angular's contribution guidelines. However, emojis are sometimes used for the author's own taste.
+
+- build: Changes that affect the build system or external dependencies (example scopes: gulp, broccoli, npm)
+- ci: Changes to our CI configuration files and scripts (examples: CircleCi, SauceLabs)
+- docs: Documentation only changes
+- feat: A new feature
+- fix: A bug fix
+- perf: A code change that improves performance
+- refactor: A code change that neither fixes a bug nor adds a feature
+- test: Adding missing tests or correcting existing tests
 
 ## Getting Started
 
@@ -6,8 +30,6 @@ First, run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
