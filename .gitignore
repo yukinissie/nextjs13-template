@@ -45,3 +45,6 @@ next-env.d.ts
 
 # storycap
 __screenshots__
+
+# reg-suit
+.reg
