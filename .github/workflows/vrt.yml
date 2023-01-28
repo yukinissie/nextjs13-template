@@ -19,8 +19,9 @@ jobs:
         with:
           fetch-depth: 0
       - name: workaround for detached HEAD for reg-suit
+        if: ${{ github.event_name == 'pull_request' }}
         run: |
-          git checkout ${GITHUB_REF#refs/heads/} || git checkout -b ${GITHUB_REF#refs/heads/}
+          git checkout ${GITHUB_HEAD_REF#refs/heads/} || git checkout -b ${GITHUB_HEAD_REF#refs/heads/} && git pull
       - uses: actions/setup-node@v3
         with:
           node-version-file: .node-version
