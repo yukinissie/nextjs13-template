@@ -27,7 +27,7 @@ jobs:
           node-version-file: .node-version
           cache: 'npm'
       - name: Install dependencies
-        run: npm ci
+        run: npm install
       - name: Run storycap
         run: npm run screenshot
       - name: Run reg-suit
