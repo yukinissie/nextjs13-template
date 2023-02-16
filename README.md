@@ -1,15 +1,10 @@
 # yukinissie's nextjs 13 template
 
-![](https://api.checklyhq.com/v1/badges/checks/dfe622f3-abb6-4fa7-b251-ccd79dab65b0?style=flat&theme=default&responseTime=true)
-
-[![SonarCloud](https://sonarcloud.io/images/project_badges/sonarcloud-white.svg)](https://sonarcloud.io/summary/new_code?id=nextjs13-template)
-
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 Then I added the following,
 
 - [Renovate](https://github.com/marketplace/renovate)
-- [SonarCloud](https://www.sonarsource.com/products/sonarcloud/)
 - [Storybook](https://storybook.js.org/) V6
 - [Playwright](https://playwright.dev/)
 
