@@ -8,9 +8,11 @@
     "start": "next start",
     "lint": "next lint",
     "storybook": "start-storybook -p 6006",
+    "storybook:ci": "start-storybook -p 6006 --ci",
     "build-storybook": "build-storybook",
     "test:e2e": "playwright test",
-    "screenshot": "storycap --serverCmd \"npm run storybook\" http://localhost:6006 --serverTimeout 600000",
+    "screenshot": "storycap --serverCmd \"npm run storybook:ci\" http://localhost:6006 --serverTimeout 600000",
+    "screenshot:ci": "./.github/workflows/utils/parallel-screenshot.sh",
     "regression": "reg-suit run"
   },
   "dependencies": {
