@@ -1,9 +1,9 @@
-name: Playwright Tests
+name: Playwright E2E Tests
 on:
   push:
-    branches: [main]
+    branches: [main, master]
   pull_request:
-    branches: [main]
+    branches: [main, master]
 jobs:
   test:
     timeout-minutes: 60
@@ -14,20 +14,50 @@ jobs:
         with:
           node-version-file: .node-version
           cache: 'npm'
-      - name: Install dependencies
-        run: npm install
-      - name: Restore and Cache Playwright
+
+      - name: Cache node_modules
         uses: actions/cache@v3
+        id: node-modules-cache
         with:
-          path: ~/.cache/ms-playwright
-          key: playwright
-      - name: Install Playwright
-        run: npx playwright install --with-deps
+          path: |
+            node_modules
+          key: modules-${{ hashFiles('package-lock.json') }}
+      - run: npm ci --ignore-scripts
+        if: steps.node-modules-cache.outputs.cache-hit != 'true'
+
+      - name: Get installed Playwright version
+        id: playwright-version
+        run: echo "PLAYWRIGHT_VERSION=$(node -e "console.log(require('./package-lock.json').dependencies['@playwright/test'].version)")" >> $GITHUB_ENV
+
+      - name: Cache playwright binaries
+        uses: actions/cache@v3
+        id: playwright-cache
+        with:
+          path: |
+            ~/.cache/ms-playwright
+          key: ${{ runner.os }}-playwright-${{ env.PLAYWRIGHT_VERSION }}
+      - run: npx playwright install --with-deps
+        if: steps.playwright-cache.outputs.cache-hit != 'true'
+
+      - name: Install Webkit Dependencies
+        run: |
+          sudo apt update &&\
+          sudo apt-get install libvpx7\
+            libevent-2.1-7\
+            libopus0\
+            libwoff1\
+            libharfbuzz-icu0\
+            libgstreamer-plugins-base1.0-0\
+            libgstreamer-gl1.0-0\
+            libhyphen0\
+            libmanette-0.2-0\
+            libgles2\
+            gstreamer1.0-libav
+
       - name: Run Playwright tests
-        run: npm run test:e2e
-      - uses: actions/upload-artifact@v3
+        run: npx playwright test
+      - uses: actions/upload-artifact@v2
         if: always()
         with:
-          name: playwright-report
-          path: playwright-report/
-          retention-days: 30
+          name: playwright-test-results
+          path: test-results/
