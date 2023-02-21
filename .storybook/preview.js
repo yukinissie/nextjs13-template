@@ -1,3 +1,5 @@
+// global stylesをStorybookに読み込ませる
+import '../src/styles/globals.css'
 import { withScreenshot } from 'storycap'
 
 export const decorators = [
