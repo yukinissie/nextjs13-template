@@ -1,9 +1,21 @@
 name: Run VRT
 on:
   push:
-    branches: [main]
+    branches:
+      - 'main'
   pull_request:
-    branches: [main]
+    paths:
+      - 'src/**'
+      - 'public/**'
+      - '.storybook/**'
+      - 'package.json'
+      - 'package-lock.json'
+      - '.node-version'
+      - 'regconfig.json'
+    types:
+      - opened
+      - synchronize
+      - reopened
 jobs:
   vrt:
     timeout-minutes: 60
