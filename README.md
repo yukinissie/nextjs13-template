@@ -11,13 +11,16 @@ Then I added the following,
 The prefix of a pull request should be as follows, following Angular's contribution guidelines. However, emojis are sometimes used for the author's own taste.
 
 - build: Changes that affect the build system or external dependencies (example scopes: gulp, broccoli, npm)
-- ci: Changes to our CI configuration files and scripts (examples: CircleCi, SauceLabs)
+- ci: Add or update to our CI configuration files and scripts (examples: CircleCi, SauceLabs)
 - docs: Documentation only changes
 - feat: A new feature
+- style: Add or update the UI and style files
 - fix: A bug fix
 - perf: A code change that improves performance
 - refactor: A code change that neither fixes a bug nor adds a feature
 - test: Adding missing tests or correcting existing tests
+- infra: Infrastructure related changes
+- test: Add, update, or pass tests
 
 ## Getting Started
 
