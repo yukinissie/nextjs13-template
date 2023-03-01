@@ -20,7 +20,6 @@ The prefix of a pull request should be as follows, following Angular's contribut
 - refactor: A code change that neither fixes a bug nor adds a feature
 - test: Adding missing tests or correcting existing tests
 - infra: Infrastructure related changes
-- test: Add, update, or pass tests
 
 ## Getting Started
 
