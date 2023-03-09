@@ -25,7 +25,7 @@ jobs:
       contents: write
     steps:
       - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v1
+        uses: aws-actions/configure-aws-credentials@v2
         with:
           role-to-assume: ${{ secrets.UPLOAD_S3_FOR_VRT_RESULT_ROLE }}
           aws-region: ap-northeast-1
